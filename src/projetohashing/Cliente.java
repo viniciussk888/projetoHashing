@@ -2,6 +2,8 @@ package projetohashing;
 
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 public class Cliente {
 
    static String nome;
@@ -61,19 +63,21 @@ public class Cliente {
         }
     }
     public void imprimir(){
+    	String imp = "";
         for (int i = 0; i < lista.length; i++) {
-            System.out.println(lista[i]);
-            
+        	imp += "------------------------------------------------------------------------------------\n";
+        	imp += lista[i]+"\n";
         }
+        JOptionPane.showMessageDialog(null, imp);
+    }
+    public void buscarCliente(String cpf) {
+    	int posicao = metodoDobra(cpf);
+    	JOptionPane.showMessageDialog(null, lista[posicao]);
     }
 
     @Override
     public String toString() {
-        return "Nome:"+nome
-                + "\nIdade: "+idade
-                + "\nFone: "+telefone
-                + "\nEndereço: "+endereco
-                + "\nCPF: "+cpf;
+        return "Nome:"+nome + "   |   Idade: "+idade + "   |   Fone: "+telefone + "   |   Endereço: "+endereco+ "   |   CPF: "+cpf;
     }
     
 

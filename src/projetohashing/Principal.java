@@ -12,9 +12,10 @@ public class Principal {
      do{
        op=Integer.parseInt(JOptionPane.showInputDialog("MENU: \n"
                + "1 - Adicionar Cliente\n"
-               + "2 - Buscar Cliente\n"
-               + "3 - Remover Cliente\n"
-               + "4 - Sair"));
+               + "2 - Imprimir Clientes\n"
+               + "3 - Buscar Cliente\n"
+               + "4 - Remover Cliente\n"
+               + "5 - Sair"));
        
        switch(op){
            case 1:
@@ -30,9 +31,12 @@ public class Principal {
                dados.imprimir();
                break;
            case 3:
-               
+               dados.buscarCliente(JOptionPane.showInputDialog("Digite o cpf"));
                break;
            case 4:
+        	   
+        	   break;
+           case 5:
               op=0;
                break;
            default:
