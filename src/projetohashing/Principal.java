@@ -19,7 +19,7 @@ public class Principal {
        switch(op){
            case 1:
              dados.nome = JOptionPane.showInputDialog("Nome: ");
-             dados.cpf = Long.parseLong(JOptionPane.showInputDialog("CPF: "));
+             dados.cpf = JOptionPane.showInputDialog("CPF: ");
              dados.endereco = JOptionPane.showInputDialog("Endereço: ");
              dados.idade = JOptionPane.showInputDialog("Idade: ");
              dados.telefone = JOptionPane.showInputDialog("Fone: ");

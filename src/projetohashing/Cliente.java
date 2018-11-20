@@ -8,7 +8,7 @@ public class Cliente {
    static String endereco;
    static String idade;
    static String telefone;
-   static long cpf;
+   static String cpf;
 
     static Cliente lista[];
 
@@ -17,18 +17,38 @@ public class Cliente {
     }
 
     public void adicionar(Cliente dados) {
-        int posicao = hash((dados.cpf));
+        int posicao = metodoDobra((dados.cpf));
         if (lista[posicao] == null) {
             lista[posicao] = dados;
         } else {
             colisaoEmInterior(dados);
         }
     }
+    
+	private int metodoDobra(String cpf) {
+		do {
+			String aux = "";
+			if(cpf.length()%2 != 0) { // Se o tamanho do CPF for impar
+				cpf = cpf+'0';
+			}
+			for (int i = 0; i < cpf.length()/2; i++) {
+				int primeiro = Character.getNumericValue(cpf.charAt(i)); // Converte de Char para int
+				int ultimo = Character.getNumericValue(cpf.charAt(cpf.length()-(i+1)));
+				int soma = primeiro+ultimo;
+				if(soma >= 10) {
+					soma %= 10;
+				}
+				aux += soma;
+			}
+			cpf = aux;
+		} while (cpf.length() != 1);
+		return Integer.parseInt(cpf);
+	}
 
-    public int hash(long cpf) {
-        int hash = (int) (cpf % lista.length);
-        return hash;
-    }
+//    public int hash(long cpf) {
+//        int hash = (int) (cpf % lista.length);
+//        return hash;
+//    }
 
     public static void colisaoEmInterior(Cliente dados) {
         int r = lista.length / 2;
