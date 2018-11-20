@@ -65,7 +65,7 @@ public class Cliente {
     public void imprimir(){
     	String imp = "";
         for (int i = 0; i < lista.length; i++) {
-        	imp += "------------------------------------------------------------------------------------\n";
+        	imp += "----------------------------------------------------------------------------------------------------------------\n";
         	imp += lista[i]+"\n";
         }
         JOptionPane.showMessageDialog(null, imp);
