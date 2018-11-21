@@ -54,8 +54,10 @@ public class ListaClientes {
 	public String imprimir() {
 		String imp = "";
 		for (int i = 0; i < lista.length; i++) {
+                    if(lista[i]!=null){
 			imp += "-----------------------------------------------------------------\n";
 			imp += lista[i] + "\n";
+                    }
 		}
 		return imp;
 	}
