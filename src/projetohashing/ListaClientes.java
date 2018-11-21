@@ -54,10 +54,10 @@ public class ListaClientes {
 	public String imprimir() {
 		String imp = "";
 		for (int i = 0; i < lista.length; i++) {
-                    if(lista[i]!=null){
-			imp += "-----------------------------------------------------------------\n";
-			imp += lista[i] + "\n";
-                    }
+			if (lista[i] != null) {
+				imp += "-----------------------------------------------------------------\n";
+				imp += lista[i] + "\n";
+			}
 		}
 		return imp;
 	}
@@ -68,30 +68,34 @@ public class ListaClientes {
 		int aux = lista.length / 2;
 		Cliente retorno = null;
 
-		if (lista[posicao] != null) {
+		try {
+			if (lista[posicao] != null) {
 
-			if (lista[posicao].cpf.equals(cpf)) {
-				retorno = lista[posicao];
-			} else {
-				boolean encontrado = false;
-				if (lista[aux] != null) {
-					do {
-						if (lista[aux].cpf.equals(cpf)) {
-							encontrado = true;
-							retorno = lista[aux];
-						} else {
-							aux++;
-						}
-					} while (encontrado == false);
+				if (lista[posicao].cpf.equals(cpf)) {
+					retorno = lista[posicao];
 				} else {
-					retorno = null;
+					boolean encontrado = false;
+					if (lista[aux] != null) {
+						do {
+							if (lista[aux].cpf.equals(cpf)) {
+								encontrado = true;
+								retorno = lista[aux];
+							} else {
+								aux++;
+							}
+						} while (encontrado == false);
+					} else {
+						retorno = null;
+					}
 				}
+
+			} else {
+				retorno = null;
 			}
 
-		} else {
+		} catch (Exception ex) {
 			retorno = null;
 		}
-
 		return retorno;
 	}
 
