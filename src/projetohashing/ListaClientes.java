@@ -61,12 +61,13 @@ public class ListaClientes {
 	}
 
 	public Cliente buscarCliente(String cpf) {
+
 		int posicao = metodoDobra(cpf);
 		int aux = lista.length / 2;
 		Cliente retorno = null;
-		
-		if(lista[posicao] != null) {
-			
+
+		if (lista[posicao] != null) {
+
 			if (lista[posicao].cpf.equals(cpf)) {
 				retorno = lista[posicao];
 			} else {
@@ -85,27 +86,24 @@ public class ListaClientes {
 				}
 			}
 
-		}else {
+		} else {
 			retorno = null;
 		}
-		
+
 		return retorno;
 	}
 
 	public boolean remover(String cpf) {
 		boolean retorno = false;
 		int posicao = metodoDobra(cpf);
-		
-//		lista[posicao] = null;
-		
-//		int posicao = metodoDobra(cpf);
+
 		int aux = lista.length / 2;
-		
-		if(lista[posicao] != null) {
-			
+
+		if (lista[posicao] != null) {
+
 			if (lista[posicao].cpf.equals(cpf)) {
 				lista[posicao] = null;
-				retorno = false;
+				retorno = true;
 			} else {
 				boolean encontrado = false;
 				if (lista[aux] != null) {
@@ -123,7 +121,7 @@ public class ListaClientes {
 				}
 			}
 
-		}else {
+		} else {
 			retorno = false;
 		}
 		return retorno;
